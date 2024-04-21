@@ -1,0 +1,203 @@
+@import "../../index.scss";
+@import "../../responsive.scss";
+
+.single {
+  display: flex;
+  gap: 50px;
+  height: 100%;
+
+  @include md {
+    flex-direction: column;
+  }
+
+  .details {
+    flex: 3;
+    padding-bottom: 20px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include md {
+      overflow-y: visible;
+    }
+
+    .info {
+      margin: 50px 0;
+      display: flex;
+      justify-content: space-between;
+
+      .content {
+        flex: 4;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        height: 100%;
+
+        @include xsm {
+          gap: 20px;
+        }
+
+        h1 {
+          font-size: 24px;
+
+          @include xsm {
+            font-size: 18px;
+          }
+        }
+
+        .address {
+          display: flex;
+          gap: 5px;
+          font-size: 12px;
+          color: #777;
+
+          img {
+            width: 15px;
+            height: 15px;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .user {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        padding: 30px;
+        background-color: $light-yellow;
+        height: 100%;
+
+        @include md {
+          padding: 10px;
+        }
+
+        img {
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+
+        span {
+          font-weight: 500;
+          color: #555;
+
+          @include xsm {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    .desc {
+      text-align: justify;
+      font-size: 14px;
+    }
+  }
+
+  .features {
+    flex: 2;
+    background-color: $light-yellow;
+    padding-bottom: 20px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include md {
+      overflow-y: visible;
+    }
+
+    .wrapper {
+      padding: 0px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      @include md {
+        padding: 20px;
+      }
+
+      .box {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &.single-map {
+          height: 300px;
+        }
+
+        h2 {
+          font-size: 18px;
+        }
+
+        .items {
+          display: flex;
+
+          @include md {
+            flex-direction: column;
+          }
+
+          @include sm {
+            gap: 5px;
+          }
+
+          &.column {
+            flex-direction: column;
+          }
+
+          img {
+            width: 20px;
+            height: 20px;
+          }
+
+          .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #fff;
+            padding: 5px;
+
+            @include md {
+              width: 50%;
+            }
+
+            @include xsm {
+              width: 100%;
+            }
+
+            &.save {
+              padding: 10px 20px;
+              border: 1px solid $price;
+              cursor: pointer;
+            }
+
+            .info {
+              display: flex;
+              flex-direction: column;
+              gap: 5px;
+
+              h3 {
+                font-size: 14px;
+              }
+
+              span {
+                font-size: 10px;
+                text-transform: capitalize;
+              }
+            }
+
+            span {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

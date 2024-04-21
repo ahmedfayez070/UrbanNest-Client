@@ -1,0 +1,128 @@
+@import "../../index.scss";
+@import "../../responsive.scss";
+
+.card {
+  display: flex;
+  gap: 20px;
+
+  @include xsm {
+    flex-direction: column;
+  }
+
+  &:last-of-type {
+    margin-bottom: 20px;
+  }
+
+  .img-container {
+    flex: 2;
+    height: 200px;
+
+    @include sm {
+      height: 150px;
+      flex: none;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+
+  .text-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+
+    @include sm {
+      justify-content: flex-start;
+      flex: none;
+    }
+
+    img {
+      width: 16px;
+      height: 16px;
+      object-fit: cover;
+    }
+
+    .title {
+      font-size: 20px;
+      color: #444;
+      font-weight: 600;
+      transition: all 0.4s ease;
+
+      @include sm {
+        font-size: 16px;
+      }
+
+      &:hover {
+        color: #000;
+        scale: 1.01;
+      }
+    }
+
+    .address {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #888;
+
+      @include sm {
+        font-size: 12px;
+      }
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+
+      .features,
+      .icons {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+
+        @include sm {
+          gap: 5px;
+        }
+
+        .feature {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          padding: 5px;
+          background-color: whitesmoke;
+
+          @include sm {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .icons {
+        display: flex;
+        gap: 5px;
+
+        .icon {
+          cursor: pointer;
+          padding: 5px;
+          border: 1px solid #ccc;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: whitesmoke;
+          }
+        }
+      }
+    }
+  }
+}

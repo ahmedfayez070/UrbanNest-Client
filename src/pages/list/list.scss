@@ -1,0 +1,30 @@
+@import "../../index.scss";
+@import "../../responsive.scss";
+
+.list {
+  height: 100%;
+  display: flex;
+  gap: 50px;
+
+  .list-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .map-container {
+    flex: 2;
+    height: 100%;
+    background-color: $light-yellow;
+
+    @include md {
+      display: none;
+    }
+  }
+}

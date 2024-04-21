@@ -1,0 +1,101 @@
+@import "../../index.scss";
+@import "../../responsive.scss";
+
+.home {
+  display: flex;
+  gap: 50px;
+  padding-bottom: 10px;
+  height: 100%;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-container {
+    flex: 3;
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      gap: 20px;
+
+      h1 {
+        font-size: 54px;
+
+        @include md {
+          font-size: 44px;
+        }
+
+        @include xsm {
+          font-size: 30px;
+        }
+      }
+
+      p {
+        color: #555;
+        text-align: justify;
+      }
+    }
+
+    .boxes {
+      display: flex;
+      justify-content: space-between;
+      max-width: 80%;
+
+      @include xsm {
+        display: none;
+      }
+
+      .box {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        h2 {
+          font-size: 28px;
+
+          @include sm {
+            font-size: 24px;
+          }
+        }
+
+        span {
+          color: #777;
+          font-size: 20px;
+
+          @include sm {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .img-container {
+    flex: 2;
+    background-color: $light-yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @include sm {
+      display: none;
+    }
+
+    img {
+      position: absolute;
+      right: 0;
+      width: 105%;
+      height: 100%;
+      object-fit: cover;
+
+      @include md {
+        height: auto;
+      }
+    }
+  }
+}

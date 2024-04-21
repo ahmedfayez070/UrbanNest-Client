@@ -1,0 +1,61 @@
+@import "../../index.scss";
+@import "../../responsive.scss";
+
+.search-bar {
+  .buttons {
+    button {
+      padding: 10px 30px;
+      background-color: #fff;
+      color: #222;
+      border: 1px solid #ccc;
+      cursor: pointer;
+
+      &:first-of-type {
+        border-radius: 5px 0 0 0;
+        border-right: none;
+      }
+
+      &:last-of-type {
+        border-radius: 0 5px 0 0;
+        border-left: none;
+      }
+
+      &.active {
+        background-color: #222;
+        color: #fff;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+
+    @include sm {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input {
+      border: 1px solid #efefef;
+      height: 40px;
+      padding: 10px;
+      width: 80%;
+    }
+
+    button {
+      height: 40px;
+      padding: 10px 20px;
+      background-color: $dark-yellow;
+      cursor: pointer;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+
+      img {
+        width: 25px;
+      }
+    }
+  }
+}

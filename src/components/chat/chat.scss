@@ -1,0 +1,143 @@
+@import "../../index.scss";
+@import "../../responsive.scss";
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .messages {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    h1 {
+      color: #555;
+      font-size: 24px;
+    }
+
+    .message {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background-color: #fff;
+      padding: 10px;
+      cursor: pointer;
+
+      img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    @include md {
+      flex: none;
+    }
+
+    .top {
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $price;
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        img {
+          width: 40px;
+          height: 40px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+
+        span {
+          font-weight: bold;
+        }
+      }
+
+      .close {
+        cursor: pointer;
+      }
+    }
+
+    .mid {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: 300px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .message {
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+
+        &.owner {
+          align-self: flex-end;
+          text-align: right;
+
+          p,
+          span {
+            align-self: flex-end;
+          }
+        }
+
+        p {
+          font-size: 16px;
+        }
+
+        span {
+          background-color: $price;
+          width: max-content;
+          padding: 2px;
+          font-size: 10px;
+        }
+      }
+    }
+
+    .bottom {
+      display: flex;
+
+      input {
+        flex: 1;
+        border: 1px solid #eee;
+        padding: 10px;
+        font-size: 14px;
+        color: #555;
+      }
+
+      button {
+        background-color: $price;
+        padding: 5px 20px;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@import "./responsive.scss";
+
+$light-yellow: #fcf5f3;
+$dark-yellow: #fece51;
+$price: rgba(254, 205, 81, 0.438);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+button:disabled {
+  cursor: not-allowed !important;
+  opacity: 0.7;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  overflow: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include md {
+    overflow-y: auto;
+  }
+}
+
+.price {
+  background-color: $price;
+  padding: 10px;
+  width: max-content;
+  font-weight: 400;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.flex-1 {
+  flex: 1;
+}

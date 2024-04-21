@@ -1,0 +1,26 @@
+.pop-container {
+  display: flex;
+  gap: 10px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    span {
+      color: #777;
+    }
+
+    b {
+      font-size: 12px;
+    }
+  }
+}
