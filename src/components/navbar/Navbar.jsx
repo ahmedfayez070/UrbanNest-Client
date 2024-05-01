@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.scss";
-import { useNotificationStore } from "../../lib/notificationStore";
+// import { useNotificationStore } from "../../lib/notificationStore";
 import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
@@ -9,8 +9,8 @@ const Navbar = () => {
 
   const { currentUser } = useContext(AuthContext);
 
-  const fetch = useNotificationStore((state) => state.fetch);
-  const number = useNotificationStore((state) => state.number);
+  // const fetch = useNotificationStore((state) => state.fetch);
+  // const number = useNotificationStore((state) => state.number);
 
   if (currentUser) fetch();
 
@@ -38,7 +38,7 @@ const Navbar = () => {
             </Link>
             <div className="register-btn link-profile">
               <Link to="/profile">Profile</Link>
-              {number > 0 && <span>{number}</span>}
+              {/* {number > 0 && <span>{number}</span>} */}
             </div>
           </>
         ) : (

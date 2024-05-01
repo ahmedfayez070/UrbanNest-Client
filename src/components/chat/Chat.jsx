@@ -4,7 +4,7 @@ import moment from "moment";
 import { AuthContext } from "../../context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
 // import { SocketContext } from "../../context/SocketContext";
-import { useNotificationStore } from "../../lib/notificationStore";
+// import { useNotificationStore } from "../../lib/notificationStore";
 
 const Chat = ({ chats }) => {
   const [chat, setChat] = useState(null);
@@ -12,7 +12,7 @@ const Chat = ({ chats }) => {
   const { currentUser } = useContext(AuthContext);
   // const { socket } = useContext(SocketContext);
 
-  const decrease = useNotificationStore((state) => state.decrease);
+  // const decrease = useNotificationStore((state) => state.decrease);
 
   const messageEndRef = useRef();
 
@@ -24,7 +24,7 @@ const Chat = ({ chats }) => {
     try {
       const res = await apiRequest.get("/chats/" + id);
       if (!res.data.seenBy.includes(currentUser.id)) {
-        decrease();
+        // decrease();
       }
       setChat({ ...res.data, receiver });
     } catch (error) {
