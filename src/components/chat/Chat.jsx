@@ -3,14 +3,14 @@ import { useContext, useEffect, useRef, useState } from "react";
 import moment from "moment";
 import { AuthContext } from "../../context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
-import { SocketContext } from "../../context/SocketContext";
+// import { SocketContext } from "../../context/SocketContext";
 import { useNotificationStore } from "../../lib/notificationStore";
 
 const Chat = ({ chats }) => {
   const [chat, setChat] = useState(null);
 
   const { currentUser } = useContext(AuthContext);
-  const { socket } = useContext(SocketContext);
+  // const { socket } = useContext(SocketContext);
 
   const decrease = useNotificationStore((state) => state.decrease);
 
@@ -42,36 +42,36 @@ const Chat = ({ chats }) => {
       const res = await apiRequest.post("/messages/" + chat.id, { text });
       setChat((prev) => ({ ...prev, messages: [...prev.messages, res.data] }));
       e.target.reset();
-      socket.emit("sendMessage", {
-        receiverId: chat.receiver.id,
-        data: res.data,
-      });
+      // socket.emit("sendMessage", {
+      //   receiverId: chat.receiver.id,
+      //   data: res.data,
+      // });
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {
-    const read = async () => {
-      await apiRequest.put("chats/read/" + chat.id);
-    };
+  // useEffect(() => {
+  //   const read = async () => {
+  //     await apiRequest.put("chats/read/" + chat.id);
+  //   };
 
-    if (chat && socket) {
-      socket.on("getMessage", (message) => {
-        if (chat.id === message.chatId) {
-          setChat((prev) => ({
-            ...prev,
-            messages: [...prev.messages, message],
-          }));
-          read();
-        }
-      });
-    }
+  //   if (chat && socket) {
+  //     socket.on("getMessage", (message) => {
+  //       if (chat.id === message.chatId) {
+  //         setChat((prev) => ({
+  //           ...prev,
+  //           messages: [...prev.messages, message],
+  //         }));
+  //         read();
+  //       }
+  //     });
+  //   }
 
-    return () => {
-      socket.off("getMessage");
-    };
-  }, [chat, socket]);
+  //   return () => {
+  //     socket.off("getMessage");
+  //   };
+  // }, [chat, socket]);
 
   return (
     <div className="chat">
