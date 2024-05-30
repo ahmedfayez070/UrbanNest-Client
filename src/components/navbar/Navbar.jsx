@@ -22,8 +22,8 @@ const Navbar = () => {
           <span>UrbanNest</span>
         </Link>
         <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
+        <Link to="/">About</Link>
+        <Link to="/">Contact</Link>
         <Link to="/">Agents</Link>
       </div>
       <div className="right">
@@ -44,7 +44,7 @@ const Navbar = () => {
         ) : (
           <>
             <Link to="/login">Sign in</Link>
-            <Link to="/register-btn" className="register-btn">
+            <Link to="/register" className="register-btn">
               Sign up
             </Link>
           </>
@@ -55,8 +55,8 @@ const Navbar = () => {
 
         <div className={open ? "menu active" : "menu"}>
           <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/">About</Link>
+          <Link to="/">Contact</Link>
           <Link to="/">Agents</Link>
           {currentUser ? (
             <>
@@ -72,7 +72,7 @@ const Navbar = () => {
           ) : (
             <>
               <Link to="/login">Sign in</Link>
-              <Link to="/register-btn" className="register-btn">
+              <Link to="/register" className="register-btn">
                 Sign up
               </Link>
             </>
