@@ -1,9 +1,12 @@
 import { Suspense, useContext, useState } from "react";
-import "./profile.scss";
-import MyList from "../../components/myList/MyList";
-import Chat from "../../components/chat/Chat";
 import { Await, Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+
+import MyList from "../../components/myList/MyList";
+import Chat from "../../components/chat/Chat";
+import SpinnerLoader from "../../components/SpinnerLoader/SpinnerLoader";
+import ListSkeleton from "../../components/Skeletons/ListSkeleton/ListSkeleton";
+import "./profile.scss";
 
 const Profile = () => {
   const data = useLoaderData();
@@ -34,7 +37,7 @@ const Profile = () => {
         </div>
         <div className="info">
           <span>
-            Avatar:{" "}
+            Avatar:
             <img
               src={currentUser.avatar || "/noavatar.jpg"}
               alt={currentUser.username}
@@ -55,10 +58,14 @@ const Profile = () => {
             <button>Create New Post</button>
           </Link>
         </div>
-        <Suspense fallback={<p>Loading ...</p>}>
+        <Suspense fallback={<ListSkeleton />}>
           <Await
             resolve={data.postResponse}
-            errorElement={<p>Error loading posts!</p>}
+            errorElement={
+              <div className="flex-wrapper">
+                <p>Error loading posts!</p>
+              </div>
+            }
           >
             {(postResponse) => <MyList posts={postResponse.data.userPosts} />}
           </Await>
@@ -66,10 +73,14 @@ const Profile = () => {
         <div className="title">
           <h1>Saved List</h1>
         </div>
-        <Suspense fallback={<p>Loading ...</p>}>
+        <Suspense fallback={<ListSkeleton />}>
           <Await
             resolve={data.postResponse}
-            errorElement={<p>Error loading posts!</p>}
+            errorElement={
+              <div className="flex-wrapper">
+                <p>Error loading posts!</p>
+              </div>
+            }
           >
             {(postResponse) => <MyList posts={postResponse.data.savedPosts} />}
           </Await>
@@ -77,10 +88,20 @@ const Profile = () => {
       </div>
       <div className="right">
         <div className="wrapper">
-          <Suspense fallback={<p>Loading ...</p>}>
+          <Suspense
+            fallback={
+              <div className="flex-wrapper">
+                <SpinnerLoader />
+              </div>
+            }
+          >
             <Await
               resolve={data.chatResponse}
-              errorElement={<p>Error loading chats!</p>}
+              errorElement={
+                <div className="flex-wrapper">
+                  <p>Error loading chats!</p>
+                </div>
+              }
             >
               {(chatResponse) => <Chat chats={chatResponse.data} />}
             </Await>

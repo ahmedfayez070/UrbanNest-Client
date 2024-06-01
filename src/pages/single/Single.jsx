@@ -1,11 +1,12 @@
+import { useContext, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import DOMPurify from "dompurify";
+import { AuthContext } from "../../context/AuthContext";
+import apiRequest from "../../lib/apiRequest";
+
 import Slider from "../../components/slider/Slider";
 import Map from "../../components/map/Map";
 import "./single.scss";
-import { useLoaderData, useNavigate } from "react-router-dom";
-import DOMPurify from "dompurify";
-import { useContext, useState } from "react";
-import { AuthContext } from "../../context/AuthContext";
-import apiRequest from "../../lib/apiRequest";
 
 const Single = () => {
   const post = useLoaderData();
